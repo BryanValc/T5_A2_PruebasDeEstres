@@ -344,7 +344,7 @@ public class PruebaPruebasDeEstres {
 		
 		String metodos[]= {"Burbuja1","Burbuja2","Burbuja3","Insercion","Seleccion","Quicksort","Shellsort","Radix	"};
 		for (int i = 0; i < 4; i++) {
-			System.out.println("========================prueba de "+((int)(10*Math.pow(1000, i)))+" numeros========================\nmetodo		|comparaciones	|intercambios	|recorridos	|runtime	");
+			System.out.println("========================prueba de "+((int)(1000*Math.pow(10, i)))+" numeros========================\nmetodo		|comparaciones	|intercambios	|recorridos	|runtime	");
 			for (int j = 0; j < 8; j++) {
 				System.out.print(metodos[j]+"	|");
 				for (int k = 0; k < 3; k++) {
