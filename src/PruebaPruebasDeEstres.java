@@ -342,24 +342,17 @@ public class PruebaPruebasDeEstres {
 		
 		double promedios[][]=new double[4][4];
 		
-		
-		
 		String metodos[]= {"Burbuja1","Burbuja2","Burbuja3","Insercion","Seleccion","Quicksort","Shellsort","Radix	"};
 		for (int i = 0; i < 4; i++) {
-			System.out.println("====== prueba de "+(1000*Math.pow(10, i))+" numeros======");
-			System.out.println("metodo		|comparaciones	|intercambios	|recorridos	|runtime	");
+			System.out.println("========================prueba de "+((int)(1000*Math.pow(10, i)))+" numeros========================\nmetodo		|comparaciones	|intercambios	|recorridos	|runtime	");
 			for (int j = 0; j < 8; j++) {
 				System.out.print(metodos[j]+"	|");
 				for (int k = 0; k < 3; k++) {
-					System.out.print(MetodosOrdenamiento.resultados[i][j][k]);
-					if (MetodosOrdenamiento.resultados[i][j][k]<1000000) {
-						System.out.print("		|");
-					}else {
-						System.out.print("	|");
-					}
+					System.out.print(MetodosOrdenamiento.resultados[i][j][k]+(MetodosOrdenamiento.resultados[i][j][k]<1000000 ? "		|":"	|"));
 				}
 				System.out.println(MetodosOrdenamiento.runtimes[i][j]);
 			}
+			System.out.println();
 		}
 		
 		
