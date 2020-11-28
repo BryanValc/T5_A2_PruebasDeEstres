@@ -329,7 +329,7 @@ public class PruebaPruebasDeEstres {
 		
 		
 		for (int i = 0; i < 4; i++) {
-			int nums[]=GeneracionNumeros.generarNumerosAleatorios((int) (10*Math.pow(10, i)));
+			int nums[]=GeneracionNumeros.generarNumerosAleatorios((int) (1000*Math.pow(10, i)));
 			MetodosOrdenamiento.Burbuja.ordenacionBurbuja1(nums, i);
 			MetodosOrdenamiento.Burbuja.ordenacionBurbuja2(nums, i);
 			MetodosOrdenamiento.Burbuja.ordenacionBurbuja3(nums, i);
