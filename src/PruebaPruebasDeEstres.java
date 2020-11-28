@@ -11,14 +11,12 @@ class GeneracionNumeros{
 }
 
 class MetodosOrdenamiento{
-	static int resultados[][][]=new int[4][8][3];
-	static long runtimes[][]=new long[4][8];
-
+	static long resultados[][][]=new long[4][8][4];
 	static class Burbuja {
 		
 		public static void ordenacionBurbuja1(int nums[],int np) {
 			int numeros[]=nums.clone();
-			int comparaciones=0,intercambios=0,recorridos=0;
+			long comparaciones=0,intercambios=0,recorridos=0;
 			
 			long ini = System.nanoTime();
 			recorridos+=1;
@@ -38,12 +36,12 @@ class MetodosOrdenamiento{
 			resultados[np][0][0]=comparaciones;
 			resultados[np][0][1]=intercambios;
 			resultados[np][0][2]=recorridos;
-			runtimes[np][0]=fin-ini;
+			resultados[np][0][3]=fin-ini;
 			
 		}
 		public static void ordenacionBurbuja2(int nums[],int np) {
 			int numeros[]=nums.clone();
-			int comparaciones=0,intercambios=0,recorridos=0;
+			long comparaciones=0,intercambios=0,recorridos=0;
 			
 			int i =1;
 			boolean ordenado=false;
@@ -68,12 +66,12 @@ class MetodosOrdenamiento{
 			resultados[np][1][0]=comparaciones;
 			resultados[np][1][1]=intercambios;
 			resultados[np][1][2]=recorridos;
-			runtimes[np][1]=fin-ini;
+			resultados[np][1][3]=fin-ini;
 			
 		}
 		public static void ordenacionBurbuja3(int nums[],int np) {
 			int numeros[]=nums.clone();
-			int comparaciones=0,intercambios=0,recorridos=0;
+			long comparaciones=0,intercambios=0,recorridos=0;
 			
 			int i =1;
 			long ini = System.nanoTime();
@@ -97,7 +95,7 @@ class MetodosOrdenamiento{
 			resultados[np][2][0]=comparaciones;
 			resultados[np][2][1]=intercambios;
 			resultados[np][2][2]=recorridos;
-			runtimes[np][2]=fin-ini;
+			resultados[np][2][3]=fin-ini;
 			
 
 		}
@@ -109,7 +107,7 @@ class MetodosOrdenamiento{
 		
 		public static void ordenacionInsercion(int nums[],int np) {
 			int numeros[]=nums.clone();
-			int comparaciones=0,intercambios=0,recorridos=0;
+			long comparaciones=0,intercambios=0,recorridos=0;
 			int aux;
 			
 			long ini = System.nanoTime();
@@ -130,7 +128,7 @@ class MetodosOrdenamiento{
 			resultados[np][3][0]=comparaciones;
 			resultados[np][3][1]=intercambios;
 			resultados[np][3][2]=recorridos;
-			runtimes[np][3]=fin-ini;
+			resultados[np][3][3]=fin-ini;
 			
 		}
 		
@@ -141,7 +139,7 @@ class MetodosOrdenamiento{
 		
 		public static void ordenacionSeleccion(int[] nums,int np) {
 			int numeros[]=nums.clone();
-			int comparaciones=0,intercambios=0,recorridos=0;
+			long comparaciones=0,intercambios=0,recorridos=0;
 			
 			long ini = System.nanoTime();
 			recorridos+=1;
@@ -161,7 +159,7 @@ class MetodosOrdenamiento{
 			resultados[np][4][0]=comparaciones;
 			resultados[np][4][1]=intercambios;
 			resultados[np][4][2]=recorridos;
-			runtimes[np][4]=fin-ini;
+			resultados[np][4][3]=fin-ini;
 			
 		}
 		
@@ -169,9 +167,9 @@ class MetodosOrdenamiento{
 	
 	
 	static class Quicksort{
-		static int comparaciones=0;
-		static int intercambios=0;
-		static int recorridos=0;
+		static long comparaciones=0;
+		static long intercambios=0;
+		static long recorridos=0;
 		
         static public int[] quicksort(int[] numeros,int izq,int der) {
             int pivote = numeros[izq];
@@ -212,7 +210,7 @@ class MetodosOrdenamiento{
 			resultados[np][5][0]=comparaciones;
 			resultados[np][5][1]=intercambios;
 			resultados[np][5][2]=recorridos;
-			runtimes[np][5]=fin-ini;
+			resultados[np][5][3]=fin-ini;
 			
 			comparaciones=intercambios=recorridos=0;
         	
@@ -226,7 +224,8 @@ class MetodosOrdenamiento{
 		
 		public static void shellsort(int[] nums,int np) {
 			int numeros[]=nums.clone();
-			int intervalo,comparaciones=0,intercambios=0,recorridos=0;
+			int intervalo;
+			long comparaciones=0,intercambios=0,recorridos=0;
 			intervalo = numeros.length/2;
 			long ini = System.nanoTime();
 			recorridos+=1;
@@ -255,7 +254,7 @@ class MetodosOrdenamiento{
 			resultados[np][6][0]=comparaciones;
 			resultados[np][6][1]=intercambios;
 			resultados[np][6][2]=recorridos;
-			runtimes[np][6]=fin-ini;
+			resultados[np][6][3]=fin-ini;
 			
 		}
 		
@@ -266,7 +265,7 @@ class MetodosOrdenamiento{
 		
 		public static void radix(int[]nums,int npr) {
 			int numeros[]=nums.clone();
-			int comparaciones=0,intercambios=0,recorridos=0;
+			long comparaciones=0,intercambios=0,recorridos=0;
 			long ini = System.nanoTime();
 			if(numeros.length == 0)
 		          return;
@@ -289,6 +288,7 @@ class MetodosOrdenamiento{
 		                l = q[j] = f;
 		             else {
 		                l = q[j];
+		                recorridos+=1;
 		                while(np[l][1] != -1)
 		                l = np[l][1];
 		                np[l][1] = f;
@@ -303,13 +303,12 @@ class MetodosOrdenamiento{
 		          for(l=q[i=j=0];i<0x100;i++)
 		          for(l=q[i];l!=-1;l=np[l][1])
 		        	  numeros[j++] = np[l][0];
-		          intercambios+=1;
 		       }//for
 		          long fin = System.nanoTime();
 		          resultados[npr][7][0]=comparaciones;
 		          resultados[npr][7][1]=intercambios;
 		          resultados[npr][7][2]=recorridos;
-		          runtimes[npr][7]=fin-ini;
+		          resultados[npr][7][3]=fin-ini;
 		}
 		
 	}//class Radix
@@ -340,13 +339,13 @@ public class PruebaPruebasDeEstres {
 			System.out.println("Shellsort	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Radix.radix(nums, i);
 			System.out.println("Radix		"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
-			System.out.println("========================prueba de "+((int)(1000*Math.pow(10, i)))+" numeros========================\nmetodo		|comparaciones	|intercambios	|recorridos	|runtime	");
+			System.out.println("========================prueba de "+((int)(1000*Math.pow(10, i)))+" numeros========================\nmetodo		|comparaciones	|intercambios	|recorridos	|runtime	|");
 			for (int j = 0; j < 8; j++) {
 				System.out.print(metodos[j]+"	|");
-				for (int k = 0; k < 3; k++) {
+				for (int k = 0; k < 4; k++) {
 					System.out.print(MetodosOrdenamiento.resultados[i][j][k]+(MetodosOrdenamiento.resultados[i][j][k]<1000000 ? "		|":"	|"));
 				}
-				System.out.println(MetodosOrdenamiento.runtimes[i][j]);
+				System.out.println();
 			}
 			System.out.println();
 		}
