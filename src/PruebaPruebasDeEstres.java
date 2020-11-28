@@ -12,7 +12,7 @@ class GeneracionNumeros{
 
 class MetodosOrdenamiento{
 	static int resultados[][][]=new int[4][8][3];
-	static long timeruns[][]=new long[4][8];
+	static long runtimes[][]=new long[4][8];
 
 	static class Burbuja {
 		
@@ -38,7 +38,7 @@ class MetodosOrdenamiento{
 			resultados[np][0][0]=comparaciones;
 			resultados[np][0][1]=intercambios;
 			resultados[np][0][2]=recorridos;
-			timeruns[np][0]=fin-ini;
+			runtimes[np][0]=fin-ini;
 			
 		}
 		public static void ordenacionBurbuja2(int nums[],int np) {
@@ -68,7 +68,7 @@ class MetodosOrdenamiento{
 			resultados[np][1][0]=comparaciones;
 			resultados[np][1][1]=intercambios;
 			resultados[np][1][2]=recorridos;
-			timeruns[np][1]=fin-ini;
+			runtimes[np][1]=fin-ini;
 			
 		}
 		public static void ordenacionBurbuja3(int nums[],int np) {
@@ -97,7 +97,7 @@ class MetodosOrdenamiento{
 			resultados[np][2][0]=comparaciones;
 			resultados[np][2][1]=intercambios;
 			resultados[np][2][2]=recorridos;
-			timeruns[np][2]=fin-ini;
+			runtimes[np][2]=fin-ini;
 			
 
 		}
@@ -130,7 +130,7 @@ class MetodosOrdenamiento{
 			resultados[np][3][0]=comparaciones;
 			resultados[np][3][1]=intercambios;
 			resultados[np][3][2]=recorridos;
-			timeruns[np][3]=fin-ini;
+			runtimes[np][3]=fin-ini;
 			
 		}
 		
@@ -161,7 +161,7 @@ class MetodosOrdenamiento{
 			resultados[np][4][0]=comparaciones;
 			resultados[np][4][1]=intercambios;
 			resultados[np][4][2]=recorridos;
-			timeruns[np][4]=fin-ini;
+			runtimes[np][4]=fin-ini;
 			
 		}
 		
@@ -212,7 +212,7 @@ class MetodosOrdenamiento{
 			resultados[np][5][0]=comparaciones;
 			resultados[np][5][1]=intercambios;
 			resultados[np][5][2]=recorridos;
-			timeruns[np][5]=fin-ini;
+			runtimes[np][5]=fin-ini;
 			
 			comparaciones=intercambios=recorridos=0;
         	
@@ -255,7 +255,7 @@ class MetodosOrdenamiento{
 			resultados[np][6][0]=comparaciones;
 			resultados[np][6][1]=intercambios;
 			resultados[np][6][2]=recorridos;
-			timeruns[np][6]=fin-ini;
+			runtimes[np][6]=fin-ini;
 			
 		}
 		
@@ -309,7 +309,7 @@ class MetodosOrdenamiento{
 		          resultados[npr][7][0]=comparaciones;
 		          resultados[npr][7][1]=intercambios;
 		          resultados[npr][7][2]=recorridos;
-		          timeruns[npr][7]=fin-ini;
+		          runtimes[npr][7]=fin-ini;
 		}
 		
 	}//class Radix
@@ -339,13 +339,26 @@ public class PruebaPruebasDeEstres {
 			MetodosOrdenamiento.Shellsort.shellsort(nums, i);
 			MetodosOrdenamiento.Radix.radix(nums, i);
 		}
-		String metodos[]= {};
+		
+		double promedios[][]=new double[4][4];
+		
+		
+		
+		String metodos[]= {"Burbuja1","Burbuja2","Burbuja3","Insercion","Seleccion","Quicksort","Shellsort","Radix	"};
 		for (int i = 0; i < 4; i++) {
 			System.out.println("====== prueba de "+(1000*Math.pow(10, i))+" numeros======");
+			System.out.println("metodo		|comparaciones	|intercambios	|recorridos	|runtime	");
 			for (int j = 0; j < 8; j++) {
+				System.out.print(metodos[j]+"	|");
 				for (int k = 0; k < 3; k++) {
-					
+					System.out.print(MetodosOrdenamiento.resultados[i][j][k]);
+					if (MetodosOrdenamiento.resultados[i][j][k]<1000000) {
+						System.out.print("		|");
+					}else {
+						System.out.print("	|");
+					}
 				}
+				System.out.println(MetodosOrdenamiento.runtimes[i][j]);
 			}
 		}
 		
