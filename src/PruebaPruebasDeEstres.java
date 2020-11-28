@@ -222,7 +222,97 @@ class MetodosOrdenamiento{
     }//class Quicksort
 	
 	
+	static class Shellsort{
+		
+		public static void shellsort(int[] nums,int np) {
+			int numeros[]=nums.clone();
+			int intervalo,comparaciones=0,intercambios=0,recorridos=0;
+			intervalo = numeros.length/2;
+			long ini = System.nanoTime();
+			recorridos+=1;
+			while(intervalo>0) {
+				recorridos+=1;
+				for(int i = intervalo; i<numeros.length; i++) {
+					int j=i-intervalo;
+					recorridos+=1;
+					while(j>=0) {
+						int k=j+intervalo;
+						comparaciones+=1;
+						if(numeros[j] <= numeros[k]) {
+							j-=1;
+						}else {
+							int aux = numeros[j];
+							intercambios+=1;
+							numeros[j] = numeros[k];
+							numeros[k] = aux;
+							j-=intervalo;
+						}
+					}
+				}
+				intervalo=intervalo/2;
+			}
+			long fin = System.nanoTime();
+			resultados[np][6][0]=comparaciones;
+			resultados[np][6][1]=intercambios;
+			resultados[np][6][2]=recorridos;
+			timeruns[np][6]=fin-ini;
+			
+		}
+		
+	}//class Shellsort 
 	
+	
+	static class Radix{
+		
+		public static void radix(int[]nums,int npr) {
+			int numeros[]=nums.clone();
+			int comparaciones=0,intercambios=0,recorridos=0;
+			long ini = System.nanoTime();
+			if(numeros.length == 0)
+		          return;
+		          int[][] np = new int[numeros.length][2];
+		          int[] q = new int[0x100];
+		          int i,j,k,l,f = 0;
+		          recorridos+=1;
+		          for(k=0;k<4;k++) {
+		        	  recorridos+=1;
+		             for(i=0;i<(np.length-1);i++)
+		             np[i][1] = i+1;
+		             np[i][1] = -1;
+		             recorridos+=1;
+		             for(i=0;i<q.length;i++)
+		             q[i] = -1;
+		             recorridos+=1;
+		             for(f=i=0;i<numeros.length;i++) {
+		                j = ((0xFF<<(k<<3))&numeros[i])>>(k<<3);
+		                if(q[j] == -1)
+		                l = q[j] = f;
+		             else {
+		                l = q[j];
+		                while(np[l][1] != -1)
+		                l = np[l][1];
+		                np[l][1] = f;
+		                l = np[l][1];
+		                intercambios+=1;
+		             }
+		             f = np[f][1];
+		             np[l][0] = numeros[i];
+		             np[l][1] = -1;
+		             intercambios+=1;
+		          }
+		          for(l=q[i=j=0];i<0x100;i++)
+		          for(l=q[i];l!=-1;l=np[l][1])
+		        	  numeros[j++] = np[l][0];
+		          intercambios+=1;
+		       }//for
+		          long fin = System.nanoTime();
+		          resultados[npr][7][0]=comparaciones;
+		          resultados[npr][7][1]=intercambios;
+		          resultados[npr][7][2]=recorridos;
+		          timeruns[npr][7]=fin-ini;
+		}
+		
+	}//class Radix
 	
 	
 }
