@@ -321,7 +321,7 @@ public class PruebaPruebasDeEstres {
 
 	public static void main(String[] args) {
 		
-		
+		String metodos[]= {"Burbuja1","Burbuja2","Burbuja3","Insercion","Seleccion","Quicksort","Shellsort","Radix	"};
 		for (int i = 0; i < 4; i++) {
 			int nums[]=GeneracionNumeros.generarNumerosAleatorios((int) (1000*Math.pow(10, i)));
 			MetodosOrdenamiento.Burbuja.ordenacionBurbuja1(nums, i);
@@ -340,10 +340,6 @@ public class PruebaPruebasDeEstres {
 			System.out.println("Shellsort	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Radix.radix(nums, i);
 			System.out.println("Radix		"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
-		}
-		
-		String metodos[]= {"Burbuja1","Burbuja2","Burbuja3","Insercion","Seleccion","Quicksort","Shellsort","Radix	"};
-		for (int i = 0; i < 4; i++) {
 			System.out.println("========================prueba de "+((int)(1000*Math.pow(10, i)))+" numeros========================\nmetodo		|comparaciones	|intercambios	|recorridos	|runtime	");
 			for (int j = 0; j < 8; j++) {
 				System.out.print(metodos[j]+"	|");
@@ -354,7 +350,6 @@ public class PruebaPruebasDeEstres {
 			}
 			System.out.println();
 		}
-		
 		
 	}
 
