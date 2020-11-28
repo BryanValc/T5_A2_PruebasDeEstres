@@ -325,21 +325,21 @@ public class PruebaPruebasDeEstres {
 		for (int i = 0; i < 4; i++) {
 			int nums[]=GeneracionNumeros.generarNumerosAleatorios((int) (1000*Math.pow(10, i)));
 			MetodosOrdenamiento.Burbuja.ordenacionBurbuja1(nums, i);
-			System.out.println("Burbuja1 "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Burbuja1	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Burbuja.ordenacionBurbuja2(nums, i);
-			System.out.println("Burbuja2 "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Burbuja2	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Burbuja.ordenacionBurbuja3(nums, i);
-			System.out.println("Burbuja3 "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Burbuja3	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Insercion.ordenacionInsercion(nums, i);
-			System.out.println("Insercion "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Insercion	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Seleccion.ordenacionSeleccion(nums, i);
-			System.out.println("Seleccion "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Seleccion	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Quicksort.llamadaQuicksort(nums, i);
-			System.out.println("Quicksort "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Quicksort	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Shellsort.shellsort(nums, i);
-			System.out.println("Shellsort "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Shellsort	"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 			MetodosOrdenamiento.Radix.radix(nums, i);
-			System.out.println("Radix "+(1000*Math.pow(10, i))+" numeros terminada...");
+			System.out.println("Radix		"+((int) (1000*Math.pow(10, i)))+" numeros terminada...");
 		}
 		
 		String metodos[]= {"Burbuja1","Burbuja2","Burbuja3","Insercion","Seleccion","Quicksort","Shellsort","Radix	"};
