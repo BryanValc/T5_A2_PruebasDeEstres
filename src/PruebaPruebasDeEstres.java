@@ -13,7 +13,7 @@ class GeneracionNumeros{
 class MetodosOrdenamiento{
 	static int resultados[][][]=new int[4][8][3];
 	static long timeruns[][]=new long[4][8];
-	
+
 	static class Burbuja {
 		
 		public static void ordenacionBurbuja1(int nums[],int np) {
@@ -327,10 +327,27 @@ public class PruebaPruebasDeEstres {
 
 	public static void main(String[] args) {
 		
-		int nums[]=GeneracionNumeros.generarNumerosAleatorios(1000);
-		MetodosOrdenamiento.Burbuja.ordenacionBurbuja1(nums, 0);
-		MetodosOrdenamiento.Burbuja.ordenacionBurbuja2(nums, 0);
-		MetodosOrdenamiento.Burbuja.ordenacionBurbuja3(nums, 0);
+		
+		for (int i = 0; i < 4; i++) {
+			int nums[]=GeneracionNumeros.generarNumerosAleatorios((int) (10*Math.pow(10, i)));
+			MetodosOrdenamiento.Burbuja.ordenacionBurbuja1(nums, i);
+			MetodosOrdenamiento.Burbuja.ordenacionBurbuja2(nums, i);
+			MetodosOrdenamiento.Burbuja.ordenacionBurbuja3(nums, i);
+			MetodosOrdenamiento.Insercion.ordenacionInsercion(nums, i);
+			MetodosOrdenamiento.Seleccion.ordenacionSeleccion(nums, i);
+			MetodosOrdenamiento.Quicksort.llamadaQuicksort(nums, i);
+			MetodosOrdenamiento.Shellsort.shellsort(nums, i);
+			MetodosOrdenamiento.Radix.radix(nums, i);
+		}
+		String metodos[]= {};
+		for (int i = 0; i < 4; i++) {
+			System.out.println("====== prueba de "+(1000*Math.pow(10, i))+" numeros======");
+			for (int j = 0; j < 8; j++) {
+				for (int k = 0; k < 3; k++) {
+					
+				}
+			}
+		}
 		
 		
 	}
